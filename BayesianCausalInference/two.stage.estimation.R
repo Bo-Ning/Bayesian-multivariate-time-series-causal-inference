@@ -70,11 +70,12 @@ two.stage.estimation <- function(test.data, cntl.index, cntl.data,
   library(parallel)
   library(matrixcalc)
   
-  T <- dim(test.data)[1]
-  d <- dim(test.data)[2]
+  T <- dim(test.data)[1] # time length
+  d <- dim(test.data)[2] # dimension of test stores
   
+  # make sure test data be T by d
   if (T < d) {
-    test.data <- t(test.data)
+    test.data <- t(test.data) 
     T <- dim(test.data)[1]
     d <- dim(test.data)[2]
   }

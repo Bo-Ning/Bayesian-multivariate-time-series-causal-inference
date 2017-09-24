@@ -1,9 +1,10 @@
 # clean dataset
 rm(list = ls())
-setwd("~/Desktop/code-Bayesian-inference/")
+setwd("~/BayesianCausalInference/")
 
 # set seed
 set.seed(2017030204)
+library("MASS")
 
 ########################################################
 ################## Simulate dataset ####################
@@ -92,7 +93,8 @@ source("two.stage.estimation.R")
 MultivariateCausalInferenceRes <- 
   two.stage.estimation(test.data, cntl.index, cntl.data, 
                        graph = graph, graph.structure = graph.structure, 
-                       circle = nseasons, causal.period, s = 0.1,
+                       circle = nseasons, causal.period = causal.period, 
+                       s = 0.1,
                        emvs.iteration = 50, 
                        v0.value = seq(1e-6, 0.02, length.out = 5),
                        mcmc.iterloop = iterloop, burnin = burnin, 
