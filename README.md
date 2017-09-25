@@ -37,7 +37,7 @@ covariance matrices from their respective
 (e) Go to Step (a) and repeat until the chain converges.
 
 Skip Step (b) and (c) if no stationarity restriction is imposed on 
-![tau](http://latex.codecogs.com/gif.latex?%5Ctilde%7B%5Cboldsymbol%20%5Ctau%7D_t)
+![tau](https://latex.codecogs.com/gif.latex?%5Cboldsymbol%20%5Ctau_t)
 
 ### Our R code includes:
 
@@ -60,7 +60,7 @@ BayesianCausalImpact folder: includes the code for runing the causal inference a
  -- kalmflter.R: the code for Kalman-filter and Backward smoother
  
  -- stationaryRestrict.R & varp.R: the codes for making stationarity constraint on 
- ![tau](http://latex.codecogs.com/gif.latex?%5Ctilde%7B%5Cboldsymbol%20%5Ctau%7D_t)
+ ![tau](https://latex.codecogs.com/gif.latex?%5Cboldsymbol%20%5Ctau_t)
  
  -- MultiCausalImpact.R: the code for conducting our new causal inference method
  
