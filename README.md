@@ -39,7 +39,7 @@ covariance matrices from their respective
 Skip Step (b) and (c) if no stationarity restriction is imposed on 
 ![tau](http://latex.codecogs.com/gif.latex?%5Cboldsymbol%20%5Ctau_t)
 
-### Our R code includes:
+### The folder includes:
 
 example.R: uses to simulate a dataset. The simulation process the same as the one described in that paper.
 
