@@ -2,7 +2,6 @@
 R code for Ning, B., Ghosal, S. and Thomas, J. (2017)
 
 We provide the code for the new Bayesian causal inference method proposed in our paper: Ning, B., Ghosal, S. and Thomas, J. (2017).
-Here we will briefly introduce the model, algorithm from the paper, and provide descriptions for the R files.
 
 ### The multivariate basic structural time series model is:
 
@@ -45,27 +44,26 @@ example.R: uses to simulate a dataset. The simulation process the same as the on
 
 BayesianCausalImpact folder: includes the code for runing the causal inference analysis
 
- -- two.stage.estimate.R: the main code use to run the two-stage algorithm
+ -- two.stage.estimate.R: the main code for the two-stage algorithm
  
- -- estimate.counterfactual.R: the code for in Stage 1, the output is to obtain 
+ -- estimate.counterfactual.R: the code for the EMVS step in the two-stage algorithm, the output is
     ![Ytilde](http://latex.codecogs.com/gif.latex?%5Ctilde%7B%5Cboldsymbol%20Y%7D_t)
     
- -- EMVS.R: the code for conducting the EMVS algorithm including stationary/nonstationary/misspecified models
+ -- EMVS.R: the code for the EMVS algorithm
  
- -- MCMC.multivariate.ssm.R: the code for running MCMC in Stage 2, the outputs are the parameter posterior draws
+ -- MCMC.multivariate.ssm.R: the code for the MCMC step in the two-stage algorithm, the outputs are the parameter posterior draws
  
- -- koopmanfilter.R: the code for sampling 
- ![alpha](http://latex.codecogs.com/gif.latex?%5Cboldsymbol%20%5Calpha_%7B1%3AT%7D)
+ -- koopmanfilter.R: the code for the Kalman filter and simulation smoother algorithm 
  
- -- kalmflter.R: the code for Kalman-filter and Backward smoother
+ -- kalmflter.R: the code for the Kalman-filter and Backward smoother algorithm
  
  -- stationaryRestrict.R & varp.R: the codes for making stationarity constraint on 
  ![tau](http://latex.codecogs.com/gif.latex?%5Cboldsymbol%20%5Ctau_t)
  
  -- MultiCausalImpact.R: the code for conducting our new causal inference method
  
- -- MungeMatrix.R: the code to convert a computationally singular matrix to non-singular
+ -- MungeMatrix.R: the code to convert a computationally singular matrix into a non-singular matrix
  
- -- ks.distance-plot.R: the code to generate plots of KS distances
+ -- ks.distance-plot.R: the code for generating plots of estimated KS distances and thresholds
  
  
