@@ -1,4 +1,4 @@
-# Bayesian-multivariate-time-series-causal-inference
+# Bayesian multivariate time series causal inference
 R code for Ning, B., Ghosal, S. and Thomas, J. (2017)
 
 We provide the code for the new Bayesian causal inference method proposed in our paper: Ning, B., Ghosal, S. and Thomas, J. (2017).
