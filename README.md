@@ -1,7 +1,6 @@
 # Bayesian multivariate time series causal inference
-R code for Bayesian multivariate time series causal inference (https://arxiv.org/abs/1801.06282)
 
-We provide the code for the new Bayesian causal inference method proposed in our paper: Ning, B., Ghosal, S. and Thomas, J. (2018).
+We provide the R code for the new Bayesian causal inference method proposed in our paper: Bayesian method for causal inference in spatially-correlated multivariate time series (https://arxiv.org/abs/1801.06282).
 
 ### The multivariate basic structural time series model is:
 
