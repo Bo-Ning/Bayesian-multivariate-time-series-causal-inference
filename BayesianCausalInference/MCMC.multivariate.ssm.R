@@ -66,7 +66,7 @@ MCMC.multivariate.ssm <-
     # initialize sigma
     delta <- d+1 # prior for sigma
     B <- diag(d) # prior for sigma
-    sigma.hat.inv <- rgwish(n = 1adj = graph.structure, b = d+1, 
+    sigma.hat.inv <- rgwish(n = 1, adj = graph.structure, b = d+1, 
                             D = 0.1^2 * d * diag(d))
     sigma.hat <- chol2inv(sigma.hat.inv)
     
@@ -104,13 +104,13 @@ MCMC.multivariate.ssm <-
       sigmaV <- chol2inv(sigmaV.inv)
       sigmaW <- chol2inv(rWishart(1, d+1, k3^2 * d * diag(d))[,,1])
     } else {
-      sigmaU <- chol2inv(rgwish(adj.g = graph.structure,
-                                b = d+1, D = k1^2 * d * diag(d))[,,1])
-      sigmaV.inv <- rgwish(adj.g = graph.structure,
-                           b = d+1, D = k2^2 * d * diag(d))[,,1]
+      sigmaU <- chol2inv(rgwish(n = 1, adj = graph.structure,
+                                b = d+1, D = k1^2 * d * diag(d)))
+      sigmaV.inv <- rgwish(n = 1, adj = graph.structure,
+                           b = d+1, D = k2^2 * d * diag(d))
       sigmaV <- chol2inv(sigmaV.inv)
-      sigmaW <- chol2inv(rgwish(adj.g = graph.structure,
-                                b = d+1, D = k3^2 * d * diag(d))[,,1])
+      sigmaW <- chol2inv(rgwish(n = 1, adj = graph.structure,
+                                b = d+1, D = k3^2 * d * diag(d)))
     }
     Q <- bdiag(sigmaU, sigmaV, sigmaW)
     
