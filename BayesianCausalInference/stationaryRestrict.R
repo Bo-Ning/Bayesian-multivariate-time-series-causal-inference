@@ -41,31 +41,7 @@ stationaryRestrict <- function(y, sigma, sigma.inv = NULL) {
   if (det(U-diag(m)) <= 1e-10) {
      phi <- phi
    } else {
-    #   mcloop <- 20000
-    #   phi.est <- array(0, c(m,m,mcloop))
-    # for (iter in 1:mcloop) {
-    #     if (iter %% 500 == 0) {
-    #      #  cat(pre, "\n")
-    #       cat(".")
-    #       if (iter %% 5000 == 0)
-    #         cat(iter, "\n")
-    #     }
-    # cat("iter = ", iter)
-    # prenew = pre
-    # brk <- 5
-    # knots <- floor(m^2 / brk)
-    # for (i in 1:knots) {
-    #   if (i < knots) {
-    #     a <- ((i-1)*brk+1):(i*brk)
-    #   } else {
-    #     a <- ((i-1)*brk+1):m^2
-    #   }
-    #   prenew[a] = pre[a] + rnorm(length(a),0,jumpsig[a])
-    #   logr = -.5*sum((prenew[a]^2-pre[a]^2)/(priorsig[a]^2)) -
-    #     varppre_lkhd(y,prenew,delta,sigma,sigma.inv) +
-    #     varppre_lkhd(y,pre,delta,sigma,sigma.inv)
-    #   if(log(runif(1)) < logr){pre[a] = prenew[a]}
-    # }
+   
     length.v <- m*(m+1)/2
     prenew = pre
     prenew[1:length.v] = pre[1:length.v] + rnorm(length.v,0,jumpsig[1:length.v])
@@ -92,7 +68,6 @@ stationaryRestrict <- function(y, sigma, sigma.inv = NULL) {
     if(log(runif(1))< logr){delta = deltanew}
     phi = pre2par_varp(pre, delta)
    }
- # phi.est[,,iter] <- phi
-  # }
+
   return(phi)
 }
