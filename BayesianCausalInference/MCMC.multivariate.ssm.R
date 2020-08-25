@@ -66,8 +66,8 @@ MCMC.multivariate.ssm <-
     # initialize sigma
     delta <- d+1 # prior for sigma
     B <- diag(d) # prior for sigma
-    sigma.hat.inv <- rgwish(adj.g = graph.structure, b = d+1, 
-                            D = 0.1^2 * d * diag(d))[,,1]
+    sigma.hat.inv <- rgwish(n = 1adj = graph.structure, b = d+1, 
+                            D = 0.1^2 * d * diag(d))
     sigma.hat <- chol2inv(sigma.hat.inv)
     
     # initialize transition matrix
