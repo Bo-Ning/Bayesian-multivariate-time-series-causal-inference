@@ -237,13 +237,13 @@ MCMC.multivariate.ssm <-
         sigmaV.draws <- solve(sigmaV.inv)
         sigmaW.draws <- solve(rWishart(1, length.non.causal+d-1, scale.W)[,,1])
       } else {
-        sigmaU.draws <- solve(rgwish(adj.g = graph.structure, 
-                                     b = length.non.causal+d-1, D = scale.U)[,,1])
-        sigmaV.inv <- rgwish(adj.g = graph.structure, 
-                             b = length.non.causal+d-1, D = scale.V)[,,1]
+        sigmaU.draws <- solve(rgwish(n = 1, adj = graph.structure, 
+                                     b = length.non.causal+d-1, D = scale.U))
+        sigmaV.inv <- rgwish(n = 1, adj = graph.structure, 
+                             b = length.non.causal+d-1, D = scale.V)
         sigmaV.draws <- solve(sigmaV.inv)
-        sigmaW.draws <- solve(rgwish(adj.g = graph.structure, 
-                                     b = length.non.causal+d-1, D = scale.W)[,,1])
+        sigmaW.draws <- solve(rgwish(n = 1, adj = graph.structure, 
+                                     b = length.non.causal+d-1, D = scale.W))
       }
       Q <- bdiag(sigmaU.draws, sigmaV.draws, sigmaW.draws)
       
@@ -256,8 +256,8 @@ MCMC.multivariate.ssm <-
         sigma.hat <- solve(sigma.hat.inv)
       } else {
         D.sigma <- matrix(crossprod(res) + B, d, d)
-        sigma.hat.inv <- rgwish(n=1, adj.g = graph.structure, 
-                                b = (delta+length.non.causal), D = D.sigma)[,,1]
+        sigma.hat.inv <- rgwish(n=1, adj = graph.structure, 
+                                b = (delta+length.non.causal), D = D.sigma)
         sigma.hat <- solve(sigma.hat.inv)
       }
       
