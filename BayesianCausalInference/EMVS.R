@@ -74,14 +74,14 @@ EMVS <- function(test, cntl.index, cntl, graph.structure, circle,
   if (misspecification == FALSE) {
     # giving starting values for Q
     k1 <- k2 <- k3 <- 0.1 # prior parameters for sigma.u, sigma.v, sigma.w
-    sigma.u.hat <- chol2inv(rgwish(adj.g = graph.structure,
-                                   b = n+1, D = k1^2 * n * diag(n))[,,1])
-    sigma.v.inv <- rgwish(adj.g = graph.structure,
-                          b = n+1, D = k2^2 * n * diag(n))[,,1]
+    sigma.u.hat <- chol2inv(rgwish(n = 1, adj = graph.structure,
+                                   b = n+1, D = k1^2 * n * diag(n)))
+    sigma.v.inv <- rgwish(n = 1, adj = graph.structure,
+                          b = n+1, D = k2^2 * n * diag(n))
     sigma.v.hat <- chol2inv(sigma.v.inv)
     sigma.v.hat.inv <- solve(sigma.v.hat)
-    sigma.w.hat <- chol2inv(rgwish(adj.g = graph.structure,
-                                   b = n+1, D = k3^2 * n * diag(n))[,,1])
+    sigma.w.hat <- chol2inv(rgwish(n = 1, adj = graph.structure,
+                                   b = n+1, D = k3^2 * n * diag(n)))
     Q.hat <- bdiag(sigma.u.hat, sigma.v.hat, sigma.w.hat)
     Q.inv <- solve(Q.hat)
   
